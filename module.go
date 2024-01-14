@@ -1,4 +1,4 @@
-package libdns
+package caddy_dns_yandex_cloud
 
 import (
 	"github.com/caddyserver/caddy/v2"
