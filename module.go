@@ -32,7 +32,7 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 // UnmarshalCaddyfile sets up the DNS provider from Caddyfile tokens. Syntax:
 //
 // libdns [<api_token>] {
-//     api_token <api_token>
+//     service_account_config_path <json config path> ~/.yc/config.json for example
 // }
 //
 func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
@@ -45,9 +45,13 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 		}
 		for nesting := d.Nesting(); d.NextBlock(nesting); {
 			switch d.Val() {
-			case "api_token":
+			case "service_account_config_path":
+				err := p.Provider.GetServiceConfig(d.Val())
+				if err != nil{
+					return err
+				}
 				if p.Provider.AuthAPIToken != "" {
-					return d.Err("API token already set")
+					return d.Err("config_path already set")
 				}
 				p.Provider.AuthAPIToken = d.Val()
 				if d.NextArg() {
