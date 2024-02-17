@@ -4,7 +4,7 @@ go 1.21.5
 
 require (
 	github.com/caddyserver/caddy/v2 v2.7.6
-	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240114093130-d10c5d4125a1
+	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240216140248-bc1e5ec00d0c
 )
 
 require (
@@ -12,6 +12,7 @@ require (
 	github.com/caddyserver/certmagic v0.20.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
+	github.com/golang-jwt/jwt/v5 v5.2.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/pprof v0.0.0-20210720184732-4bb14d4b1be1 // indirect
 	github.com/google/uuid v1.3.1 // indirect
