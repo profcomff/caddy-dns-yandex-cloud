@@ -16,7 +16,7 @@ func init() {
 // CaddyModule returns the Caddy module information.
 func (Provider) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "dns.providers.libdns",
+		ID:  "dns.prividers.yandex_cloud",
 		New: func() caddy.Module { return &Provider{new(libdns.Provider)} },
 	}
 }
@@ -25,7 +25,7 @@ func (Provider) CaddyModule() caddy.ModuleInfo {
 // Implements caddy.Provisioner.
 func (p *Provider) Provision(ctx caddy.Context) error {
 	repl := caddy.NewReplacer()
-	p.Provider.AuthAPIToken = repl.ReplaceAll(p.Provider.AuthAPIToken, "")
+	p.Provider.ServiceAccountConfigPath = repl.ReplaceAll(p.Provider.ServiceAccountConfigPath, "")
 	return nil
 }
 
@@ -38,7 +38,7 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if d.NextArg() {
-			p.Provider.AuthAPIToken = d.Val()
+			p.Provider.ServiceAccountConfigPath = d.Val()
 		}
 		if d.NextArg() {
 			return d.ArgErr()
@@ -50,10 +50,10 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 				if err != nil{
 					return err
 				}
-				if p.Provider.AuthAPIToken != "" {
+				if p.Provider.ServiceAccountConfigPath != "" {
 					return d.Err("config_path already set")
 				}
-				p.Provider.AuthAPIToken = d.Val()
+				p.Provider.ServiceAccountConfigPath = d.Val()
 				if d.NextArg() {
 					return d.ArgErr()
 				}
@@ -62,8 +62,8 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 			}
 		}
 	}
-	if p.Provider.AuthAPIToken == "" {
-		return d.Err("missing API token")
+	if p.Provider.ServiceAccountConfigPath == "" {
+		return d.Err("missing service account config path")
 	}
 	return nil
 }
