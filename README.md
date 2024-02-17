@@ -20,7 +20,7 @@ To use this module for the ACME DNS challenge, [configure the ACME issuer in you
 		"dns": {
 			"provider": {
 				"name": "provider_name",
-				"api_token": "YOUR_PROVIDER_API_TOKEN"
+				"service_account_config_path": "~/.yc/keys.json"
 			}
 		}
 	}

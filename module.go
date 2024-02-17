@@ -31,7 +31,7 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 
 // UnmarshalCaddyfile sets up the DNS provider from Caddyfile tokens. Syntax:
 //
-// libdns [<api_token>] {
+// libdns [<service_account_config_path>] {
 //     service_account_config_path <json config path> ~/.yc/config.json for example
 // }
 //
