@@ -1,4 +1,4 @@
-module github.com/caddy-dns/template
+module github.com/profcomff/caddy-dns-yandex-cloud
 
 go 1.16
 
