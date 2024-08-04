@@ -16,7 +16,7 @@ func init() {
 // CaddyModule returns the Caddy module information.
 func (Provider) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "dns.prividers.yandex_cloud",
+		ID:  "dns.providers.yandex_cloud",
 		New: func() caddy.Module { return &Provider{new(libdns.Provider)} },
 	}
 }
