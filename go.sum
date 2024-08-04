@@ -51,6 +51,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/profcomff/libdns-yandex-cloud v0.0.0-20240216140248-bc1e5ec00d0c h1:KOc7okXrIP/0oUt5E4gD6oNpsvAwk4AlAlHgyDndefY=
 github.com/profcomff/libdns-yandex-cloud v0.0.0-20240216140248-bc1e5ec00d0c/go.mod h1:5x0hOozXCCSNJEznJ9ptgOcquDpnW4gSfYcdXo6MLaU=
+github.com/profcomff/libdns-yandex-cloud v0.0.0-20240804131327-d45f8f180a41 h1:7ym8PAxs9RAE9qCiCzBJlZqjyIG/DlDRk6vwf5EJ3F0=
+github.com/profcomff/libdns-yandex-cloud v0.0.0-20240804131327-d45f8f180a41/go.mod h1:5x0hOozXCCSNJEznJ9ptgOcquDpnW4gSfYcdXo6MLaU=
 github.com/prometheus/client_golang v1.15.1 h1:8tXpTmJbyH5lydzFPoxSIJ0J46jdh3tylbvM1xCv0LI=
 github.com/prometheus/client_golang v1.15.1/go.mod h1:e9yaBhRPU2pPNsZwE+JdQl0KEt1N9XgF6zxWmaC0xOk=
 github.com/prometheus/client_model v0.4.0 h1:5lQXD3cAg1OXBf4Wq03gTrXHeaV0TQvGfUooCfx1yqY=

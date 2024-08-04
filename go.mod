@@ -1,10 +1,10 @@
 module github.com/profcomff/caddy-dns-yandex-cloud
 
-go 1.21.5
+go 1.23
 
 require (
 	github.com/caddyserver/caddy/v2 v2.7.6
-	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240216140248-bc1e5ec00d0c
+	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240804131327-d45f8f180a41
 )
 
 require (

@@ -46,7 +46,7 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 		for nesting := d.Nesting(); d.NextBlock(nesting); {
 			switch d.Val() {
 			case "service_account_config_path":
-				err := p.Provider.GetServiceConfig(d.Val())
+				err := p.Provider.SetServiceConfig(d.Val())
 				if err != nil{
 					return err
 				}
