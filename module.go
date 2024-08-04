@@ -3,11 +3,11 @@ package caddy_dns_yandex_cloud
 import (
     "github.com/caddyserver/caddy/v2"
     "github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-    libdns "github.com/profcomff/libdns-yandex-cloud"
+    yandex_cloud "github.com/profcomff/libdns-yandex-cloud"
 )
 
 // Provider wraps the provider implementation as a Caddy module.
-type Provider struct{ *libdns.Provider }
+type Provider struct{ *yandex_cloud.Provider }
 
 func init() {
     caddy.RegisterModule(Provider{})
@@ -17,7 +17,7 @@ func init() {
 func (Provider) CaddyModule() caddy.ModuleInfo {
     return caddy.ModuleInfo{
         ID:  "dns.providers.yandex_cloud",
-        New: func() caddy.Module { return &Provider{new(libdns.Provider)} },
+        New: func() caddy.Module { return &Provider{new(yandex_cloud.Provider)} },
     }
 }
 
@@ -31,8 +31,8 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 
 // UnmarshalCaddyfile sets up the DNS provider from Caddyfile tokens. Syntax:
 //
-// libdns [<service_account_config_path>] {
-//     service_account_config_path <json config path> ~/.yc/config.json for example
+// yandex_cloud [<service_account_config_path>] {
+//     service_account_config_path <service_account_config_path>
 // }
 //
 func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
@@ -46,13 +46,6 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
         for nesting := d.Nesting(); d.NextBlock(nesting); {
             switch d.Val() {
             case "service_account_config_path":
-                err := p.Provider.SetServiceConfig(d.Val())
-                if err != nil{
-                    return err
-                }
-                if p.Provider.ServiceAccountConfigPath != "" {
-                    return d.Err("config_path already set")
-                }
                 p.Provider.ServiceAccountConfigPath = d.Val()
                 if d.NextArg() {
                     return d.ArgErr()

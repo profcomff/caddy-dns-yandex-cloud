@@ -4,7 +4,7 @@ go 1.21.5
 
 require (
 	github.com/caddyserver/caddy/v2 v2.7.6
-	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240804182925-41d9be60a040
+	github.com/profcomff/libdns-yandex-cloud v0.0.0-20240804191736-c413779159d2
 )
 
 require (
