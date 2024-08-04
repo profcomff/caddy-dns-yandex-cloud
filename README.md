@@ -19,7 +19,7 @@ To use this module for the ACME DNS challenge, [configure the ACME issuer in you
     "dns": {
       "provider": {
         "name": "yandex_cloud",
-        "api_token": "YCLOUD_KEYS_FILE"
+        "service_account_config_path": "YCLOUD_KEYS_FILE"
       }
     }
   }
