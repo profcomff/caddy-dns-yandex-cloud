@@ -1,12 +1,11 @@
-yandex_cloud module for Caddy
-===========================
+# Yandex Cloud module for Caddy
 
-This package contains a DNS provider module for [Caddy](https://github.com/caddyserver/caddy). It can be used to manage DNS records with yandex_cloud.
+This package contains a DNS provider module for [Caddy](https://github.com/caddyserver/caddy). It can be used to manage DNS records with Yandex Cloud accounts.
 
 ## Caddy module name
 
 ```
-dns.providers.provider_name
+dns.providers.yandex_cloud
 ```
 
 ## Config examples
@@ -15,30 +14,31 @@ To use this module for the ACME DNS challenge, [configure the ACME issuer in you
 
 ```json
 {
-	"module": "acme",
-	"challenges": {
-		"dns": {
-			"provider": {
-				"name": "provider_name",
-				"service_account_config_path": "~/.yc/keys.json"
-			}
-		}
-	}
+  "module": "acme",
+  "challenges": {
+    "dns": {
+      "provider": {
+        "name": "yandex_cloud",
+        "api_token": "YCLOUD_KEYS_FILE"
+      }
+    }
+  }
 }
 ```
 
 or with the Caddyfile:
 
 ```
-# globally
-{
-	acme_dns provider_name ...
+your.domain.com {
+  respond "Hello World"	# replace with whatever config you need...
+  tls {
+    dns yandex_cloud {env.YCLOUD_KEYS_FILE}
+  }
 }
 ```
 
-```
-# one site
-tls {
-	dns provider_name ...
-}
-```
+You can replace `{env.YCLOUD_KEYS_FILE}` with the actual authorized keys file if you prefer to put it directly in your config instead of an environment variable.
+
+## Authenticating
+
+See [the associated README in the libdns package](https://github.com/github.com/profcomff/libdns-yandex-cloud) for important information about credentials.
